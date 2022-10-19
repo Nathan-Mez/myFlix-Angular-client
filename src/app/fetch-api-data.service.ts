@@ -104,25 +104,6 @@ export class FetchApiDataService {
   }
 
 
-   /**
-   * @service GET to an API  endpoint to get data about actors
-   * @returns an array of actors in json format
-   * @function getActors
-   */
-getActors(): Observable<any> {
-  
-  return this.http
-    .get( apiUrl + 'actor', {
-      headers: new HttpHeaders({
-        Authorization: 'Bearer ' + token,
-      })
-    })
-    .pipe(
-      map(this.extractResponseData),
-      catchError(this.handleError)
-    );
-}
-
  /**
    * @service GET to an API  endpoint to get data about genres
    * @returns an array of genres in json format
