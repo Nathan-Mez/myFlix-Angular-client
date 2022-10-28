@@ -3,6 +3,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { Router } from '@angular/router';
+
+this.router.navigate(['movies']);
+
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
