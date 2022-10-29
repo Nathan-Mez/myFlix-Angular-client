@@ -1,26 +1,30 @@
 <div class="main-page">
-    <h1>
-      Welcome to myFlix!
-    </h1>
+    <mat-card class="start-page">
+    <mat-card-title>
+      Welcome to GrandFlix App
+    </mat-card-title>
+    <mat-card-subtitle>Register or Login to continue</mat-card-subtitle>
+    <mat-card-actions>
     <button
-      Mat-raised-button
+    mat-raised-button
       (click)="openUserRegistrationDialog()"
       style="margin-right: 10px;"
       color="primary"
+      width="70px"
     >
+    <mat-icon>person_add</mat-icon>
       Sign Up
     </button>
     <button
       mat-raised-button
+      (click)="openUserLoginDialog()"
+      style="margin-right: 10px;"
       color="primary"
+      width="70px"
     >
+    <mat-icon>exit_to_app</mat-icon>
       Login
     </button>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="openMoviesDialog()"
-    >
-      All Movies
-    </button>
+</mat-card-actions>
+</mat-card>
   </div>
