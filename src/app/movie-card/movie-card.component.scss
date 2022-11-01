@@ -1,18 +1,18 @@
 $backgroundColor: linear-gradient(to bottom right, rgb(209, 54, 54) , rgb(99, 25, 152));
-$width: 100vw;
-$height: 100vh;
-$padding: 0;
-$margin: 0;
+$position: center;
 
-.movie-list {
-    background: $backgroundColor;
-    height: $height;
-    width: $width;
-    margin: $margin;
-    padding: $padding;
+.movie-view {
+  background: $backgroundColor;
+  flex-wrap: wrap;
+  justify-content: $position;
+  align-items: $position;
 }
 
 mat-card {
-    margin: 20px;
-    height: 500px;
+  width: 275px;
+  margin: 20px;
+}
+
+.card-body {
+  padding: 10px;
 }
