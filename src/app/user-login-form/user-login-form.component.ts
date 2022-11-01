@@ -1,10 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+// You'll use this import to close the dialog on success
 import { MatDialogRef } from '@angular/material/dialog';
+
+// This import brings in the API calls we created in 6.2
 import { FetchApiDataService } from '../fetch-api-data.service';
+
+// This import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-user-login-form',
@@ -12,7 +17,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login-form.component.scss'],
 })
 export class UserLoginFormComponent implements OnInit {
-  @Input() userData = { Username: '', Password: '' };
+  @Input() userCredentials = { Username: '', Password: '' };
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -28,7 +33,7 @@ export class UserLoginFormComponent implements OnInit {
  */
 
   loginUser(): void {
-    this.fetchApiData.userLogin(this.userData).subscribe(
+    this.fetchApiData.userLogin(this.userCredentials).subscribe(
       (result) => {
         console.log(result);
         // Add token and username to local Storage
