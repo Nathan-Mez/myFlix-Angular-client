@@ -1,1 +1,16 @@
-<p>description works!</p>
+<mat-card class="description-dialog">
+    <mat-card-title class="description-dialog-title">{{ data.Title }}</mat-card-title>
+    <br />
+    <mat-dialog-content class="description-dialog-content">
+      <b>Description: </b>{{ data.Description }}
+    </mat-dialog-content>
+    <mat-card-actions class="description-actions">
+      <button
+        mat-raised-button
+        aria-label="Close the movie details button"
+        mat-dialog-close
+      >
+      Close
+      </button>
+    </mat-card-actions>
+  </mat-card>
