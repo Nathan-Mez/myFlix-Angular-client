@@ -10,9 +10,31 @@ $position: center;
 
 mat-card {
   width: 275px;
+  height: 550px;
   margin: 20px;
 }
 
 .card-body {
   padding: 10px;
+}
+
+nav {
+  background-color: black;
+}
+
+.grandflix-logo{
+  justify-content: space-around;
+  align-items: $position;
+  padding: 0, 30, 0, 30,;
+}
+
+h1{
+  color: white;
+  font-size: 35;
+  font-family: Verdana;
+}
+
+.nav-button {
+  height: 45px;
+  margin-left: 20px;
 }
