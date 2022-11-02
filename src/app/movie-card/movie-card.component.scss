@@ -29,9 +29,14 @@ nav {
 }
 
 h1{
-  color: white;
-  font-size: 35;
+  background: linear-gradient(to bottom right, rgb(209, 54, 54) , rgb(99, 25, 152));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;                  
+  margin-left: 15px;
+  font-size: 37px;
+  font-weight: 600;
   font-family: Verdana;
+  align-self: flex-end;
 }
 
 .nav-button {
