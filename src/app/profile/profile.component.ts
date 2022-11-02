@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,6 +16,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
+    public router: Router,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -33,4 +37,25 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  /**
+   * deletes the user profile, redirects to welcome screen
+   * @function deleteUser
+   */
+   deleteAccount(): void {
+      this.router.navigate(['welcome']).then(() => {
+        this.snackBar.open(
+          'You have successfully deleted your account!',
+          'OK',
+          {
+            duration: 5000,
+          }
+        );
+      });
+      this.fetchApiData.deleteUser().subscribe((result) => {
+        console.log(result);
+        localStorage.clear();
+      });
     }
+  }
+
+  
