@@ -1,1 +1,21 @@
-<p>profile works!</p>
+<div class="main-page">
+<mat-card class="user-profile-card">
+    <mat-card-header class="user-profile-card-header">
+      <mat-card-title>Profile Information</mat-card-title>
+    </mat-card-header>
+
+
+    <mat-card-content class="user-profile-card-content">
+      <p><b>Username:</b> {{ user.Username }}</p>
+      <p><b>Email:</b> {{ user.Email }}</p>
+      <p><b>Birthday:</b> {{ user.Birth_date | date }}</p>
+    </mat-card-content>
+
+    <mat-card-actions class="profile-actions">
+      <a 
+        mat-raised-button 
+        href="/movies" 
+        >Close</a>
+      </mat-card-actions>
+</mat-card>  
+</div>  
