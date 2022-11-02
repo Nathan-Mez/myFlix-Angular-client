@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { Router } from '@angular/router';
 
 import { GenreComponent } from '../genre/genre.component';
 import { DirectorComponent } from '../director/director.component';
-//import { SynopsisComponent } from '../synopsis/synopsis.component';
+import { DescriptionComponent } from '../description/description.component';
 
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProfileComponent } from '../profile/profile.component';
+import { EmailValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-card',
@@ -20,7 +23,8 @@ export class MovieCardComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -102,16 +106,31 @@ export class MovieCardComponent implements OnInit {
    * @param title
    * @param description
    */
-//  openSynopsisDialog(title: string, description: string): void {
-  //  this.dialog.open(SynopsisComponent, {
-    //  data: {
-      //  Title: title,
- //       Description: description,
-   //   },
+  openDescriptionDialog(title: string, description: string): void {
+    this.dialog.open(DescriptionComponent, {
+      data: {
+        Title: title,
+        Description: description,
+     },
       // Assign dialog width
-     // width: '500px',
-   // });
-  //}
+      width: '500px',
+    });
+  }
+
+  /**
+   * navigates to user profile
+   */
+   goToProfile(): void {
+    this.router.navigate(['profile']);
+  }
+
+   /**
+   * logs out users, clears local storage to reset token and user
+   */
+    logOut(): void {
+      localStorage.clear();
+      this.router.navigate(['welcome']);
+    }
 
   /**
    * adds a movie to the list of favorite movies via an API call
